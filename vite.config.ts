@@ -1,18 +1,17 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // 'base' must be './' for GitHub Pages project repositories
+  // 'base' must be './' for GitHub Pages to serve assets correctly from subdirectories
   base: './', 
   build: {
     rollupOptions: {
       input: {
-        // Define multiple entry points
-        main: resolve(__dirname, 'index.html'),
-        privacy: resolve(__dirname, 'privacy.html'),
+        // Define multiple entry points for the multi-page app
+        main: 'index.html',
+        privacy: 'privacy.html',
       },
     },
   },
